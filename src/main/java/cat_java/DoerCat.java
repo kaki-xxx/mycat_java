@@ -7,21 +7,21 @@ import java.io.IOException;
 
 public class DoerCat {
     public static void do_cat(String path) {
-        File file = new File(path);
+        var file = new File(path);
         FileReader fr = null;
         try {
             fr = new FileReader(file);
         } catch (FileNotFoundException e) {
-            System.err.println(e);
+            System.err.println(e.getMessage());
             System.exit(-1);
         }
-        try (BufferedReader br = new BufferedReader(fr)) {
+        try (var br = new BufferedReader(fr)) {
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
             }
         } catch (IOException e) {
-            System.err.println(e);
+            System.err.println(e.getMessage());
             System.exit(-1);
         }
     }
