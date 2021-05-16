@@ -19,7 +19,8 @@ public class App {
         }
         if (cmd.hasOption("help")) {
             var formatter = new HelpFormatter();
-            formatter.printHelp("java -jar cat.jar", options);
+            formatter.setOptionComparator(null);
+            formatter.printHelp("java -jar target/cat_java-0.1-jar-with-dependencies.jar", options);
             System.exit(0);
         }
         var dc = new DoerCat(cmd.hasOption("n"));
