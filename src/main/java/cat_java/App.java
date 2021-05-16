@@ -20,7 +20,9 @@ public class App {
         if (cmd.hasOption("help")) {
             var formatter = new HelpFormatter();
             formatter.setOptionComparator(null);
-            formatter.printHelp("java -jar target/cat_java-0.1-jar-with-dependencies.jar", options);
+            String usage = "java -jar target/cat_java-0.1-jar-with-dependencies.jar [OPTION]... [FILE]...";
+            String header = "Concatenate FILE(s) to standard output.";
+            formatter.printHelp(usage, header, options, null);
             System.exit(0);
         }
         var dc = new DoerCat(cmd.hasOption("n"));
