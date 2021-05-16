@@ -30,11 +30,7 @@ public class App {
             System.out.println("cat " + App.class.getPackage().getImplementationVersion());
             System.exit(0);
         }
-        var dc = new DoerCat(cmd.hasOption("n"));
-        if (args.length < 1) {
-            System.err.println("required: least one file path");
-            System.exit(-1);
-        }
-        dc.do_cat(cmd.getArgs());
+        var cat = new Cat(cmd.hasOption("n"));
+        cat.do_cat(cmd.getArgs());
     }
 }

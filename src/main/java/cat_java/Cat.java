@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class DoerCat {
+public class Cat {
     private Boolean dispLineNum;
     private int lineNum;
-    DoerCat(Boolean displineNum) {
+    Cat(Boolean displineNum) {
         this.dispLineNum = displineNum;
         this.lineNum = 1;
     }
