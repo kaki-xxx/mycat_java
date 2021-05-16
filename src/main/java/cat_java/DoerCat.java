@@ -6,23 +6,29 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class DoerCat {
-    public static void do_cat(String path) {
-        var file = new File(path);
-        FileReader fr = null;
-        try {
-            fr = new FileReader(file);
-        } catch (FileNotFoundException e) {
-            System.err.println(e.getMessage());
-            System.exit(-1);
-        }
-        try (var br = new BufferedReader(fr)) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
+    public static void do_cat(String[] paths) {
+        for (int i = 0; i < paths.length; i++) {
+            var file = new File(paths[i]);
+            FileReader fr = null;
+            try {
+                fr = new FileReader(file);
+            } catch (FileNotFoundException e) {
+                System.err.println(e.getMessage());
+                System.exit(-1);
             }
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-            System.exit(-1);
+            try (var br = new BufferedReader(fr)) {
+                do_cat_file(br);
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+                System.exit(-1);
+            }
+        }
+    }
+
+    public static void do_cat_file(BufferedReader br) throws IOException {
+        String line;
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
         }
     }
 }

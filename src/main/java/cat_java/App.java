@@ -6,6 +6,6 @@ public class App {
             System.err.println("required: least one file path");
             System.exit(-1);
         }
-        DoerCat.do_cat(args[0]);
+        DoerCat.do_cat(args);
     }
 }
