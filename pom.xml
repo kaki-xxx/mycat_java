@@ -46,6 +46,9 @@
             <archive>
               <manifest>
                 <mainClass>cat_java.App</mainClass>
+                <addDefaultImplementationEntries>
+                  true
+                </addDefaultImplementationEntries>
               </manifest>
             </archive>
           </configuration>

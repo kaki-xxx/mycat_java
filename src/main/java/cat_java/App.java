@@ -10,6 +10,7 @@ public class App {
         var options = new Options();
         options.addOption("n", false, "number all output lines");
         options.addOption(null, "help", false, "display this help and exit");
+        options.addOption(null, "version", false, "output version imformation and exit");
         CommandLine cmd = null;
         try {
             cmd = new DefaultParser().parse(options, args);
@@ -23,6 +24,10 @@ public class App {
             String usage = "java -jar target/cat_java-0.1-jar-with-dependencies.jar [OPTION]... [FILE]...";
             String header = "Concatenate FILE(s) to standard output.";
             formatter.printHelp(usage, header, options, null);
+            System.exit(0);
+        }
+        if (cmd.hasOption("version")) {
+            System.out.println("cat " + App.class.getPackage().getImplementationVersion());
             System.exit(0);
         }
         var dc = new DoerCat(cmd.hasOption("n"));
