@@ -6,11 +6,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class DoerCat {
-    private Boolean _dispLineNum;
-    private int _lineNum;
-    DoerCat(Boolean lineNum) {
-        _dispLineNum = lineNum;
-        _lineNum = 1;
+    private Boolean dispLineNum;
+    private int lineNum;
+    DoerCat(Boolean displineNum) {
+        this.dispLineNum = displineNum;
+        this.lineNum = 1;
     }
     public void do_cat(String[] paths) {
         for (var path: paths) {
@@ -34,9 +34,9 @@ public class DoerCat {
     public void do_cat_file(BufferedReader br) throws IOException {
         String line;
         while ((line = br.readLine()) != null) {
-            if (_dispLineNum) {
-                System.out.printf("%6d  ", _lineNum);
-                _lineNum++;
+            if (dispLineNum) {
+                System.out.printf("%6d  ", lineNum);
+                lineNum++;
             }
             System.out.println(line);
         }
