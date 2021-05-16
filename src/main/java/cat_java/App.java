@@ -1,5 +1,10 @@
 package cat_java;
 import org.apache.commons.cli.Options;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
@@ -31,6 +36,16 @@ public class App {
             System.exit(0);
         }
         var cat = new Cat(cmd.hasOption("n"));
-        cat.do_cat(cmd.getArgs());
+        var paths = cmd.getArgs();
+        if (paths.length > 0) {
+            cat.do_cat(cmd.getArgs());
+        } else {
+            try {
+                cat.do_cat_file(new BufferedReader(new InputStreamReader(System.in)));
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+                System.exit(-1);
+            }
+        }
     }
 }
