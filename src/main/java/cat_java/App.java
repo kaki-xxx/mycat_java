@@ -38,10 +38,10 @@ public class App {
         var cat = new Cat(cmd.hasOption("n"));
         var paths = cmd.getArgs();
         if (paths.length > 0) {
-            cat.do_cat(cmd.getArgs());
+            cat.doCat(cmd.getArgs());
         } else {
             try {
-                cat.do_cat_file(new BufferedReader(new InputStreamReader(System.in)));
+                cat.doCatFile(new BufferedReader(new InputStreamReader(System.in)));
             } catch (IOException e) {
                 System.err.println(e.getMessage());
                 System.exit(-1);

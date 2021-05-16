@@ -12,7 +12,7 @@ public class Cat {
         this.dispLineNum = displineNum;
         this.lineNum = 1;
     }
-    public void do_cat(String[] paths) {
+    public void doCat(String[] paths) {
         for (var path: paths) {
             var file = new File(path);
             FileReader fr = null;
@@ -23,7 +23,7 @@ public class Cat {
                 System.exit(-1);
             }
             try (var br = new BufferedReader(fr)) {
-                do_cat_file(br);
+                doCatFile(br);
             } catch (IOException e) {
                 System.err.println(e.getMessage());
                 System.exit(-1);
@@ -31,7 +31,7 @@ public class Cat {
         }
     }
 
-    public void do_cat_file(BufferedReader br) throws IOException {
+    public void doCatFile(BufferedReader br) throws IOException {
         String line;
         while ((line = br.readLine()) != null) {
             if (dispLineNum) {
