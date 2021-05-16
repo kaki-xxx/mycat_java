@@ -6,7 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class DoerCat {
-    public static void do_cat(String[] paths) {
+    DoerCat() {}
+    public void do_cat(String[] paths) {
         for (var path: paths) {
             var file = new File(path);
             FileReader fr = null;
@@ -25,7 +26,7 @@ public class DoerCat {
         }
     }
 
-    public static void do_cat_file(BufferedReader br) throws IOException {
+    public void do_cat_file(BufferedReader br) throws IOException {
         String line;
         while ((line = br.readLine()) != null) {
             System.out.println(line);
