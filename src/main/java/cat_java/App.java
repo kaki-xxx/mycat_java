@@ -22,11 +22,11 @@ public class App {
             formatter.printHelp("java -jar cat.jar", options);
             System.exit(0);
         }
-        var dc = new DoerCat();
+        var dc = new DoerCat(cmd.hasOption("n"));
         if (args.length < 1) {
             System.err.println("required: least one file path");
             System.exit(-1);
         }
-        dc.do_cat(args);
+        dc.do_cat(cmd.getArgs());
     }
 }
