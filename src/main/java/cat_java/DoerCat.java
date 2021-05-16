@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class DoerCat {
     public static void do_cat(String[] paths) {
-        for (int i = 0; i < paths.length; i++) {
-            var file = new File(paths[i]);
+        for (var path: paths) {
+            var file = new File(path);
             FileReader fr = null;
             try {
                 fr = new FileReader(file);
